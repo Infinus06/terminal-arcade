@@ -134,7 +134,7 @@ def play() -> int:
     Returns:
         100 points for a win, 0 otherwise.
     """
-    print(art.banner("TIC TAC TOE"))
+    print(art.TICTACTOE_BANNER)
     print(f"\n  You are {PLAYER}. The computer is {COMPUTER}.")
 
     board = new_board()
