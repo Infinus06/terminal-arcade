@@ -133,7 +133,7 @@ def test_multiple_entries_are_numbered_sequentially_starting_from_one():
         {"player": "carol", "game": "tictactoe", "score": 30},
     ]
     table = scoreboard.format_scoreboard(entries)
-    lines = [line for line in table.splitlines() if line.strip() and not line.strip().startswith("-") and not "Player" in line]
+    lines = [line for line in table.splitlines() if line.strip() and not line.strip().startswith("-") and "Player" not in line]
     assert len(lines) == 3
     assert lines[0].strip().startswith("1  ")
     assert lines[1].strip().startswith("2  ")

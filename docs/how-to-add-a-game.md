@@ -6,6 +6,11 @@ any other part of the codebase.
 
 Time: about 20–30 minutes.
 
+The walkthrough uses Coin Flip as its worked example. Coin Flip is already in
+the arcade (`arcade/games/coinflip.py`, and you can read it for reference), so
+for your own pull request follow the same steps with your game's name in place
+of `coinflip`.
+
 ---
 
 ## The idea
@@ -28,7 +33,7 @@ your game does.
 
 ### 1. Claim an issue
 
-Find one labelled `good first issue` — for example *"Add a Coin Flip game"* —
+Find one labelled `good first issue` that is not marked `status: claimed`,
 and comment `/claim`. A bot assigns it to you.
 
 ### 2. Fork, clone, branch
@@ -98,14 +103,15 @@ Open `arcade/main.py`. Two small edits:
 
 ```python
 # add your module to this import line
-from arcade.games import coinflip, guess, hangman, rps, tictactoe
+from arcade.games import coinflip, guess, hangman, yourgame, rps, tictactoe
 
 GAMES: list[ModuleType] = [
     guess,
     hangman,
     rps,
     tictactoe,
-    coinflip,  # <- add this line
+    coinflip,
+    yourgame,  # <- add your module here
 ]
 ```
 
@@ -150,7 +156,7 @@ python3 -m pytest
 git add arcade/games/coinflip.py arcade/main.py tests/test_coinflip.py
 git commit -m "feat: add Coin Flip game
 
-Closes #12"
+Closes #<issue number>"
 git push origin feat/coin-flip-game
 ```
 
@@ -176,9 +182,10 @@ gets your PR merged faster.
 
 ## Ideas that are not claimed yet
 
-Coin Flip · Dice Roll · Magic 8-Ball · Rock Paper Scissors Lizard Spock ·
-Higher or Lower (with cards) · Word Scramble · Simon Says (with a sequence
-you type back) · Anagram Hunt · Countdown Numbers · Nim · Mastermind
+Rock Paper Scissors Lizard Spock · Higher or Lower (with cards) · Simon Says
+(with a sequence you type back) · Anagram Hunt · Countdown Numbers · Nim ·
+Mastermind. Check the open issues first, since some of these may already have
+an owner.
 
 Do not see yours? Open a **Feature request** issue and propose it.
 
@@ -189,7 +196,7 @@ Do not see yours? Open a **Feature request** issue and propose it.
 1. Read `arcade/games/guess.py` — it is the simplest game and does everything
    yours needs to
 2. Comment on your issue. Genuinely, ask. That is not a failure
-3. Come to a **PR Debug Clinic** (Oct 12, Oct 21)
+3. Bring your branch to a PR Debug Clinic if your community is running one
 
 The first pull request is the hardest one you will ever make. Everything after
 this is easier.

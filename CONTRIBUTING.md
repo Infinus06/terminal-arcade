@@ -12,7 +12,7 @@ working game you can copy and turn into your own.
 ## What this project is
 
 A collection of small games you play in your terminal — Hangman, Tic Tac Toe,
-Guess the Number, Rock Paper Scissors — behind one menu. It exists to be a
+Guess the Number, Word Scramble and a few more — behind one menu. It exists to be a
 gentle, genuinely fun first open source project.
 
 **Tech stack:** Python 3.10+. Nothing else. No dependencies, by design.
@@ -221,7 +221,7 @@ we dropped the ball.
 2. Read `arcade/games/guess.py`, the simplest game in the project
 3. Comment on the issue and tag the mentor listed on it
 4. Say what you have already tried — that alone often surfaces the answer
-5. Come to a **PR Debug Clinic** (Oct 12, Oct 21) and we will sit with you
+5. If your community runs a PR Debug Clinic, bring your branch along and ask for help there
 
 Useful when Git misbehaves:
 
@@ -247,6 +247,6 @@ In short: be kind, assume good faith, and remember that the person asking a
 
 | Name | GitHub | Looks after |
 |---|---|---|
-| <!-- FILL: your name --> | <!-- FILL: @your-handle --> | Everything |
+| Pushpam | [@pushpam2404](https://github.com/pushpam2404) | Everything |
 
 **Domain:** OS & DevX

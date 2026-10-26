@@ -9,7 +9,7 @@ from arcade.games.hangman import WORDS
 from arcade.input_utils import ask
 
 NAME = "Scramble"
-DESCRIPTION = "Scramble is a classic word game where you unscramble letters to find words."
+DESCRIPTION = "Unscramble the letters to find the hidden word"
 
 MAX_TRY = 3
 

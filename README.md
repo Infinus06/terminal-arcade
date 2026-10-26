@@ -40,9 +40,17 @@ python3 -m arcade
      Best of five against the computer
   4. Tic Tac Toe
      The classic, against a computer that plays at random
+  5. Coin Flip
+     Call it right three times in a row
+  6. Dice Roll
+     Pick a total and see how close two dice land
+  7. Magic 8-Ball
+     Ask a question and receive a mysterious answer
+  8. Scramble
+     Unscramble the letters to find the hidden word
 
-  5. High scores
-  6. Quit
+  9. High scores
+  10. Quit
 
   What would you like to play?
 ```
@@ -100,7 +108,7 @@ none of them are yours to worry about. Here is the honest breakdown.
 
 | Folder | What is in it |
 |---|---|
-| **`arcade/games/`** | **One file per game.** Nearly every beginner issue is "add a game" or "fix a game", and it happens in exactly one file in this folder. If you only ever open one directory in this repo, open this one. |
+| **`arcade/games/`** | **One file per game.** Most beginner issues are "add a game" or "fix a game", and they happen in one file in this folder. If you only ever open one directory in this repo, open this one. |
 | `arcade/` | The shared bits every game uses — the menu (`main.py`), the ASCII art (`art.py`), asking the player questions (`input_utils.py`), high scores (`scoreboard.py`). Intermediate issues live here. |
 | `tests/` | The automated tests. Some issues ask you to add one; `tests/test_<name>.py` matches `arcade/<name>.py`. |
 
@@ -138,7 +146,7 @@ contributed to open source before.
 
 ### The fastest way in
 
-1. Browse [issues labelled `good first issue`](../../issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+1. Browse the [open `good first issue` list](../../issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Some are already claimed; the label `status: claimed` marks those
 2. Comment **`/claim`** on one — a bot assigns it to you within seconds
 3. Read [CONTRIBUTING.md](CONTRIBUTING.md)
 4. Open a pull request with `Closes #<issue number>` in the description
@@ -148,7 +156,7 @@ contributed to open source before.
 | | |
 |---|---|
 | 🎮 **Add a game** | One new file, one line in a list. [Step-by-step guide with working code](docs/how-to-add-a-game.md) |
-| 🐛 **Fix a bug** | There are real bugs in here on purpose. Each issue names the exact file and function |
+| 🐛 **Fix a bug** | Known bugs are written up as issues, each naming the exact file and function |
 | ✨ **Improve a game** | Difficulty levels, better ASCII art, an opponent that actually tries to win |
 
 Every issue tells you the file to open, what "done" looks like, and how to
@@ -223,19 +231,12 @@ python3 -m pytest
 
 More detail in [docs/architecture.md](docs/architecture.md).
 
-## Events
+## Who runs this
 
-Maintained by **OS & DevX**, GITHUB Community GITAM.
-
-| Date | Event |
-|---|---|
-| Mon, Oct 5 | Open Source Kickoff & Live PR Lab |
-| Mon, Oct 12 | PR Debug Clinic #1 — bring a broken branch |
-| Wed, Oct 21 | PR Debug Clinic #2 |
-
-
-## Contribution Test
-This change verifies the contribution workflow for the event.
+Maintained by **OS & DevX**, GITHUB Community GITAM, as a Hacktoberfest practice
+repository. The kickoff session and both PR Debug Clinics from the October event have
+already taken place. New contributions are still welcome; the issue list is the
+current picture of what is open.
 
 
 ## License

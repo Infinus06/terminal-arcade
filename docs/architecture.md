@@ -13,7 +13,11 @@ arcade/
     ├── guess.py
     ├── hangman.py
     ├── rps.py
-    └── tictactoe.py
+    ├── tictactoe.py
+    ├── coinflip.py
+    ├── diceroll.py
+    ├── eightball.py
+    └── scramble.py
 ```
 
 ## How a game gets played
@@ -112,9 +116,9 @@ to test and easy to reason about.
 
 ## Known rough edges
 
-There are real bugs in here. They are written up as issues with the file and
-function named, because fixing a genuine bug in code you did not write is a
-much better first contribution than adding a comment.
+Some behaviour here is known to be unfinished. It is written up as issues with
+the file and function named, because fixing a genuine bug in code you did not
+write is a much better first contribution than adding a comment.
 
 If you find one that is not already an issue, **open one**. That is a
 contribution too.
