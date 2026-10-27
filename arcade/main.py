@@ -6,6 +6,7 @@ provides NAME, DESCRIPTION, and a play() function returning a score.
 
 from __future__ import annotations
 
+import random
 import sys
 from types import ModuleType
 
@@ -14,6 +15,7 @@ from arcade.games import coinflip, diceroll, eightball, guess, hangman, rps, scr
 from arcade.input_utils import ask, ask_int, confirm, pause
 
 # To add a game: write arcade/games/yourgame.py, import it above, and add it
+
 GAMES: list[ModuleType] = [
     guess,
     hangman,
@@ -25,6 +27,11 @@ GAMES: list[ModuleType] = [
     scramble,
 ]
 
+SURPRISE_OPTION = len(GAMES) + 1
+SCORES_OPTION = len(GAMES) + 2
+QUIT_OPTION = len(GAMES) + 3
+
+
 
 def show_menu() -> None:
     """Print the list of games and the extra options."""
@@ -35,8 +42,9 @@ def show_menu() -> None:
         print(f"  {number}. {art.bold(game.NAME)}")
         print(f"     {art.dim(game.DESCRIPTION)}")
 
-    print(f"\n  {len(GAMES) + 1}. High scores")
-    print(f"  {len(GAMES) + 2}. Quit\n")
+    print(f"\n  {SURPRISE_OPTION}. Surprise me")
+    print(f"  {SCORES_OPTION}. High scores")
+    print(f"  {QUIT_OPTION}. Quit\n")
 
 
 def show_high_scores() -> None:
@@ -69,25 +77,30 @@ def run_game(game: ModuleType) -> None:
             break
 
 
+
 def main() -> None:
     """Start the arcade. Loops until the player chooses to quit."""
-    quit_option = len(GAMES) + 2
-    scores_option = len(GAMES) + 1
-
     while True:
         show_menu()
         choice = ask_int(
             "  What would you like to play?",
             minimum=1,
-            maximum=quit_option,
+            maximum=QUIT_OPTION,
         )
 
-        if choice == quit_option:
+        if choice == QUIT_OPTION:
             print(art.cyan("\n  Thanks for playing. See you next time.\n"))
             return
 
-        if choice == scores_option:
+        if choice == SCORES_OPTION:
             show_high_scores()
+            pause()
+            continue
+
+        if choice == SURPRISE_OPTION:
+            game = random.choice(GAMES)
+            print(f"\n  Surprise! You're playing {game.NAME}!")
+            run_game(game)
             pause()
             continue
 

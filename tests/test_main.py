@@ -96,3 +96,26 @@ def test_eof_error_outer_safety_net_exits_0(monkeypatch, capsys):
         runpy.run_module("arcade.__main__", run_name="__main__")
     assert exc_info.value.code == 0
     assert "Goodbye!" in capsys.readouterr().err
+
+    
+def test_the_menu_offers_surprise_me(capsys):
+    main.show_menu()
+    output = capsys.readouterr().out
+    assert "Surprise me" in output
+
+
+def test_surprise_me_plays_a_random_game(monkeypatch, capsys):
+    game = main.GAMES[0]
+    monkeypatch.setattr(main.random, "choice", lambda games: game)
+    monkeypatch.setattr(main, "ask_int", lambda *args, **kwargs: main.SURPRISE_OPTION)
+    monkeypatch.setattr(main, "run_game", lambda selected_game: print(f"Playing {selected_game.NAME}"))
+    monkeypatch.setattr(main, "pause", lambda: None)
+
+    choices = iter([main.SURPRISE_OPTION, main.QUIT_OPTION])
+    monkeypatch.setattr(main, "ask_int", lambda *args, **kwargs: next(choices))
+
+    main.main()
+
+    output = capsys.readouterr().out
+    assert f"Surprise! You're playing {game.NAME}!" in output
+    assert f"Playing {game.NAME}" in output
