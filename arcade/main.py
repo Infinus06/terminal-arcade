@@ -11,7 +11,7 @@ from types import ModuleType
 
 from arcade import __version__, art, scoreboard
 from arcade.games import coinflip, diceroll, eightball, guess, hangman, rps, scramble, tictactoe
-from arcade.input_utils import ask, ask_int, confirm, pause
+from arcade.input_utils import ask, confirm, pause, read_key
 
 # To add a game: write arcade/games/yourgame.py, import it above, and add it
 GAMES: list[ModuleType] = [
@@ -25,7 +25,6 @@ GAMES: list[ModuleType] = [
     scramble,
 ]
 
-
 def show_menu() -> None:
     """Print the list of games and the extra options."""
     print(art.ARCADE_BANNER)
@@ -35,8 +34,8 @@ def show_menu() -> None:
         print(f"  {number}. {art.bold(game.NAME)}")
         print(f"     {art.dim(game.DESCRIPTION)}")
 
-    print(f"\n  {len(GAMES) + 1}. High scores")
-    print(f"  {len(GAMES) + 2}. Quit\n")
+    print("\n  9. High scores")
+    print("  0. Quit\n")
 
 
 def show_high_scores() -> None:
@@ -47,11 +46,7 @@ def show_high_scores() -> None:
 
 
 def run_game(game: ModuleType) -> None:
-    """Play one game and offer to save the score.
-
-    Args:
-        game: A game module with NAME and play().
-    """
+    """Play one game and offer to save the score."""
     print()
     score = game.play()
 
@@ -71,16 +66,18 @@ def run_game(game: ModuleType) -> None:
 
 def main() -> None:
     """Start the arcade. Loops until the player chooses to quit."""
-    quit_option = len(GAMES) + 2
-    scores_option = len(GAMES) + 1
+    quit_option = 0
+    scores_option = 9
 
     while True:
         show_menu()
-        choice = ask_int(
-            "  What would you like to play?",
-            minimum=1,
-            maximum=quit_option,
-        )
+        key = read_key("  What would you like to play? ")
+
+        if key not in "0123456789":
+            print(art.red("  Please press a number from 0 to 9."))
+            continue
+
+        choice = int(key)
 
         if choice == quit_option:
             print(art.cyan("\n  Thanks for playing. See you next time.\n"))
@@ -93,7 +90,6 @@ def main() -> None:
 
         run_game(GAMES[choice - 1])
         pause()
-
 
 if __name__ == "__main__":
     try:
