@@ -173,8 +173,17 @@ RPS_BANNER = r"""
     |___/\__|_/__\___/__/___/_| /__/       
 """
 
-# TODO: Tic Tac Toe has no banner yet. See the open issue if you would like to
-# add one — it is a good first contribution.
+
+
+TICTACTOE_BANNER = r"""
+ _____ _ ____   _____  _   ____    _____ ___  _____
+|_   _|_ |__  | |_   _|/ \ |  _ \  |_   _/ _ \| ____|
+  | | | |  / /    | | / _ \| |_) |   | || | | |  _|
+  | | | | / /     | |/ ___ \  __/   | || |_| | |___
+  |_| |___/____|  |_/_/   \_\_|      |_| \___/|_____|
+"""
+
+
 
 GALLOWS = [
     # 0 wrong guesses through 6 (lost)
